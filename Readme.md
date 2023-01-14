@@ -24,16 +24,14 @@ cargo lambda watch
 eg. curl http://127.0.0.1:9000/lambda-url/sample/    
 
 ### Makefile
-
-
-### Rover
-use cli for generating supergraph schema
+Please see makefile.toml 
 
 ## Deploy to AWS
 
 **Note**: Do  not with Root account - create admin IAM role before
 aws iam create-role --role-name rust-role --assume-role-policy-document file://rust-role.json
 
+Please see deploy.sh.    
 
 
 ## Keycloak
