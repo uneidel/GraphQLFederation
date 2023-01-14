@@ -1,0 +1,35 @@
+
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[config]
+default_to_workspace = false
+
+[tasks.keycloak]
+cwd = "./"
+command = "docker-compose"
+args = ["-f", "docker-compose.yaml", "${@}", "-d", "keycloak"]
+
+[tasks.locallambda]
+cwd = "./sample"
+command = "cargo"
+args=["lambda", "watch"]
+
+[tasks.CheckDependencies]
+cwd ="./"
+command = "cargo"
+args=["machete"]
+
+[tasks.rover]
+cwd="./"
+command="rover"
+args= ["dev", "-u", "http://localhost:9000/lambda-url/subgraph1/graphql", "--name", "user"]
+
+
+[tasks.localdev]
+run_task = { name = ["locallambda", "cleanup"], fork = true, cleanup_task = "cleanup" }
+
+[tasks.apollo]
+cwd="./"
+command ="docker-compose"
+args = ["-f", "docker-compose.yaml", "${@}",  "-d", "apollo"]

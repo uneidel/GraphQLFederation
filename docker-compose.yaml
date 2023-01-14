@@ -1,0 +1,33 @@
+version: "3.6"
+
+services:
+    keycloak:
+      image: quay.io/keycloak/keycloak:20.0.2
+      container_name: segraph_keycloak
+      command: start-dev
+      restart: always
+      volumes:
+          - ./.keycloak_data:/opt/keycloak/data/
+      ports:
+          - "8080:8080"
+      network_mode: "host"           
+      environment:
+          KEYCLOAK_ADMIN: admin
+          KEYCLOAK_ADMIN_PASSWORD: admin
+    apollo:
+        image: ghcr.io/apollographql/router:v1.7.0
+        command: --dev --log info --supergraph=/etc/config/supergraph.graphql
+        volumes:
+            - ./schema/prod-schema.graphql:/etc/config/supergraph.graphql
+            - ./schema/router.yaml:/dist/config/router.yaml
+        # Disabled since subgraphs are not published
+        #environment:
+        #    APOLLO_GRAPH_REF: "se@se" 
+        #    APOLLO_KEY: "user:gh.602d67f0-bd47-4fdf-9dde-956ff030b0e8:_2GDUS086vjfSZAjHDFAKg" 
+        ports:
+            - "4000:4000"
+        network_mode: "host"   
+
+          
+
+

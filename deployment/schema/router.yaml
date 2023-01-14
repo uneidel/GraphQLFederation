@@ -1,0 +1,13 @@
+headers:
+  all:
+    request:
+     - propagate:
+          named: authorization
+include_subgraph_errors:
+  all: true
+telemetry:
+  metrics:
+    prometheus:
+      enabled: true
+      listen: 127.0.0.1:9090
+      path: /metrics

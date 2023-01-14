@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  subgraph1Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      MemorySize: 128
+      Architectures: ["x64_86"]
+      Handler: manufacturer
+      Runtime: provided.al2
+      Timeout: 5
+      CodeUri: target/x86_64-unknown-linux-musl/
+
+Outputs:
+  FunctionName:
+    Value: !Ref subgraph1
+    Description: Subgraph1

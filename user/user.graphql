@@ -1,0 +1,21 @@
+schema {
+  query: User
+  mutation: Mutation
+}
+type Jwt {
+  accessToken: String!
+  expiresIn: Int!
+  refreshExpiresIn: Int!
+  refreshToken: String!
+  tokenType: String!
+  notbeforepolicy: Int!
+  sessionState: String!
+  scope: String!
+}
+type Mutation {
+  refresh(refreshtoken: String!): Jwt!
+  login(username: String!, password: String!): Jwt!
+}
+type User {
+  me: String!
+}

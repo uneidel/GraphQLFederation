@@ -1,0 +1,22 @@
+[package]
+authors = ["ulrich.neidel", "uneidel"]
+description = "A GraphQL server library implemented in Rust"
+documentation = ""
+edition = "2021"
+homepage = ""
+keywords = ["futures", "async", "graphql"]
+
+name = "async-graphql"
+readme = "README.md"
+repository = "https://github.com/uneidel/graphql"
+version = "0.0.1"
+
+
+
+[workspace]
+members = [   
+    "shared", 
+    "user",
+    "subgraph1", 
+    
+]

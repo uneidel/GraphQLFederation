@@ -1,0 +1,27 @@
+[package]
+name = "shared"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "shared"
+path = "src/shared.rs"
+
+[dependencies]
+aws_lambda_events = "0.7.2"
+lambda_http = "0.7.2"
+async-graphql = { version="5.0" }
+serde_json = "1.0.1"
+serde = "1.0.1"
+http = "0.2.3"
+futures-util = "0.3.0"
+chrono = "0.4"
+warp = "0.3.3"
+jsonwebtoken = "8.2.0"
+thiserror = "1.0.38"
+
+[features]
+# Defines a feature named `webp` that does not enable any other features.
+macros = []

@@ -1,0 +1,9 @@
+[security]
+pk = "-----BEGIN CERTIFICATE-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv5HKO8pWcjjhu4As0rBcGrKRrzUUBqR3/vPrSRnlrqYQhwrDuhnf3LBPXwR/6iugsDaLK84Rw/R+3l291nA7iIOf6zFAT2fFZLMDTSuLGcwbvhrtGXK3OK/UG3jIxiU3h1xg0w+Ze5UbukqaMoTUMicNs+bSZF/e8/8T2Y0H7VncKRNIkL6Uz7QmjVGoFEoCKRsq60T16pcXgYHWSa7ROWKnsuHrh5sEUQg/uxk12teSykUTpY0tzOsiISw/vCq9FX5DvbHBheVOGMU851lC9wGTMX+p62k0cvnqSH4+DqQNZSPQ5Sq/b4WO28G4jTkv5HHux3UPC21Riaw26XElTQIDAQAB\n-----END CERTIFICATE-----"
+jwt_enabled = false
+playground = true
+requiredrole ="api,pcn"
+
+[server]
+port = 4000
+url = "0.0.0.0"

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: se.apollorouter
+  labels:
+    app: se.apollorouter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: se.apollorouter
+  template:
+    metadata:
+      labels:
+        app: se.apollorouter
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "9090"
+    spec:
+      containers:
+        - name: apollorouter
+          image: ghcr.io/apollographql/router:v1.7.0
+          imagePullPolicy: Always
+          env:
+            - name: queueHost
+              valueFrom:
+                configMapKeyRef:
+                  name: vizuu-config
+                  key: queueHost
+            
+          #resources:
+          #  limits:
+          #    memory: "256Mi"
+          #    cpu: "0.25"
+          ports:
+            - containerPort: 4000
+              name: apollo
+            - containerPort: 9090
+              name: prometheus
+
+---
+

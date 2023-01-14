@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  UserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      MemorySize: 128
+      Architectures: ["arm64"]
+      Handler: UserFunction
+      Runtime: provided.al2
+      Timeout: 5
+      CodeUri: target/lambda/user/
+      
+
+Outputs:
+  FunctionName:
+    Value: !Ref UserFunction
+    Description: SEUser
