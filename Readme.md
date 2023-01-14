@@ -13,15 +13,15 @@ Main Features:
 
 
 ## Prerequisities
-cargo install cargo-make
-pip3 install cargo-lambda
-curl -sSL https://rover.apollo.dev/nix/latest | sh
-cargo make docker up -d keycloak
+cargo install cargo-make    
+pip3 install cargo-lambda     
+curl -sSL https://rover.apollo.dev/nix/latest | sh    
+cargo make docker up -d keycloak   
 
 ## Test Lambdas locally
-Change to Directory ...
-cargo lambda watch
-eg. curl http://127.0.0.1:9000/lambda-url/sample/
+Change to Directory ...   
+cargo lambda watch    
+eg. curl http://127.0.0.1:9000/lambda-url/sample/    
 
 ### Makefile
 
@@ -55,9 +55,10 @@ jwtd() {
 
 ## Compose Supergraph
 
-Please see publishsubgraph.sh   
+Create a Apollo Studio Account (https://studio.apollographql.com/) - This is used for Schema Registry and Superschema Composition.
+Iam not using Dynamic Schema Creation due to possible errors - Static are more stable.
 
-
+Publish subgraph to Apollo Studio Please see publishsubgraph.sh    
 
 ### Main creates
 Tokio     
