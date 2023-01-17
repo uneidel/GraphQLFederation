@@ -1734,8 +1734,10 @@ dependencies = [
  "http",
  "jsonwebtoken",
  "lambda_http 0.7.2",
+ "quote",
  "serde",
  "serde_json",
+ "syn",
  "thiserror",
  "warp",
 ]
