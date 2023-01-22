@@ -18,5 +18,6 @@ members = [
     "shared", 
     "user",
     "subgraph1", 
+    "proccrate"
     
 ]
